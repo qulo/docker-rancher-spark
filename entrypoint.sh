@@ -12,7 +12,8 @@ case "$1" in
         exec bin/spark-class org.apache.spark.deploy.worker.Worker $2
         ;;
     livy)
-        exec env | grep "SPARK"
+        export LIBPROCESS_IP=$(ip route get 8.8.8.8 | head -1 | cut -d' ' -f8)
+        exec $LIVY_APP_PATH/bin/livy-server
         ;;
     bash)
         sh
