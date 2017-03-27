@@ -21,6 +21,8 @@ RUN mkdir -p /usr/build && \
     rm -rf $LIVY_BUILD_PATH && \
   mkdir -p $LIVY_APP_PATH/upload
 
+RUN rm /usr/bin/python && ln -s /usr/bin/python3.4 /usr/bin/python
+
 WORKDIR $SPARK_HOME
 
 RUN pip install numpy
