@@ -6,7 +6,7 @@ A [Apache Spark](http://spark.apache.org) image for [Rancher](http://rancher.com
 
 * [Oracle Java](https://www.oracle.com/java/index.html) - v8.0_112
 * [Apache Spark](http://spark.apache.org) - v2.1.0
-* [Apache Hadoop](http://hadoop.apache.org) - v2.7.3
+* [Apache Hadoop](http://hadoop.apache.org) - v2.8.0
 * [Livy](http://livy.io) - v0.4.0-SNAPSHOT
 
 ## Prerequisites
