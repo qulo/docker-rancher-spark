@@ -1,4 +1,4 @@
-FROM gettyimages/spark:2.1.0-hadoop-2.7
+FROM qulo/spark:2.1.0-hadoop-2.8
 
 RUN apt-get update \
  && apt-get install -y \
