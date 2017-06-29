@@ -1,8 +1,8 @@
-FROM qulo/spark:2.0.2-hadoop-2.8
+FROM qulo/spark:2.1.1-hadoop-2.8
 
 RUN apt-get update \
  && apt-get install -y \
- git python-setuptools maven \
+ git python-setuptools maven r-base \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
