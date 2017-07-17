@@ -1,4 +1,4 @@
-FROM qulo/spark:2.2.0-hadoop-2.8
+FROM qulo/spark:2.1.1-hadoop-2.8
 
 RUN apt-get update \
  && apt-get install -y \
