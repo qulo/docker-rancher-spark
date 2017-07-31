@@ -4,18 +4,33 @@ A [Apache Spark](http://spark.apache.org) image for [Rancher](http://rancher.com
 
 ## Versions
 
-* [Oracle Java](https://www.oracle.com/java/index.html) - v8.0_112
-* [Apache Spark](http://spark.apache.org) - v2.1.0
+* [Oracle Java](https://www.oracle.com/java/index.html) - v8.131_11
+* [Apache Spark](http://spark.apache.org) - v2.1.1
 * [Apache Hadoop](http://hadoop.apache.org) - v2.8.0
 * [Livy](http://livy.io) - v0.4.0-SNAPSHOT
 
-## Prerequisites
 
-To start the spark cluster, you need a running Rancher-Cluster (Cattle)
+## Running locally
+``` 
+# starting spark master:
+docker run qulo/rancher-spark master <hostname or ip of the master>
 
-## Installing
+# starting spark worker:
+docker run qulo/rancher-spark worker <hostname or ip of the master>
+```
 
-> not implemented yet
+## Running with docker-compose
+```
+# starting
+docker-compose up
 
-1. Add this repository to your Rancher Custom Catalogs `Admin -> Settings -> Add Catalog`
-2. Browse to the custom Catalog `Catalog -> Spark-Rancher` and install
+# skaling workers to 3
+docker-compose scale spark-worker=3
+
+# stopping
+docker-compose stop
+```
+
+## Running in Rancher
+###### WARNING: this will open port 8080 on the spark-master to public
+create a service stack and use [docker-compose.yml](docker-compose.yml) service creation.
