@@ -4,7 +4,7 @@ if [[ $(curl -s rancher-metadata/latest/self/container/name) -eq 1 ]]; then
     export SPARK_LOCAL_IP=`curl -s rancher-metadata/latest/self/container/primary_ip`
 else
     export SPARK_PUBLIC_DNS=$(hostname) \
-    export SPARK_LOCAL_IP=$(ip route get 8.8.8.8 | head -1 | cut -d' ' -f8)
+    export SPARK_LOCAL_IP=$(hostname -i)
 fi
 
 case "$1" in
@@ -15,15 +15,11 @@ case "$1" in
     worker)
         exec bin/spark-class org.apache.spark.deploy.worker.Worker $2
         ;;
-    livy)
-        export LIBPROCESS_IP=$(ip route get 8.8.8.8 | head -1 | cut -d' ' -f8)
-        exec $LIVY_APP_PATH/bin/livy-server
-        ;;
     bash)
         sh
         ;;
     *)
-        echo $"Usage: {master|worker|livy|bash}"
+        echo $"Usage: {master|worker|bash}"
         exit 1
     ;;
 esac
