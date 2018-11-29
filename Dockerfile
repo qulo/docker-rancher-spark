@@ -1,4 +1,4 @@
-FROM qulo/spark:spark2.4.0-hadoop3.1.1
+FROM qulo/spark:spark2.3.2-hadoop2.9.1
 
 ADD entrypoint.sh .
 
